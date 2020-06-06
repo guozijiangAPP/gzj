@@ -10,7 +10,7 @@
 				<view class=" flex text-center text-gray response top-nav">
 					<view class="flex flex-sub flex-direction solid-right">
 						<view class="text-xxl text-colorRed text-bold">297</view>
-						<view class="text-sm">跑力值123</view>
+						<view class="text-sm">跑力值</view>
 					</view>
 					<view class="flex flex-sub flex-direction solid-right">
 						<view class="text-xxl text-colorRed text-bold">405</view>
