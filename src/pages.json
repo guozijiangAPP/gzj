@@ -1,0 +1,24 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style":{
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/user/index"
+	}, {
+		"path": "pages/custom/index"
+	}, {
+		"path": "pages/h5page/index"
+	}, {
+		"path": "pages/task/index"
+	}, {
+		"path": "pages/activity/index"
+	}, {
+		"path": "pages/hpcircle/index"
+	}],
+	"globalStyle": {
+		"navigationStyle": "custom",
+		"backgroundColor": "#333333"
+	}
+}

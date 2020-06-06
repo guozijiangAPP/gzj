@@ -1,0 +1,55 @@
+{
+    "name": "mini-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "npm run dev:h5",
+        "build": "npm run build:h5",
+        "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
+        "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
+        "build:mp-alipay": "cross-env NODE_ENV=production UNI_PLATFORM=mp-alipay vue-cli-service uni-build",
+        "build:mp-baidu": "cross-env NODE_ENV=production UNI_PLATFORM=mp-baidu vue-cli-service uni-build",
+        "build:mp-toutiao": "cross-env NODE_ENV=production UNI_PLATFORM=mp-toutiao vue-cli-service uni-build",
+        "build:mp-weixin": "cross-env NODE_ENV=production UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
+        "dev:app-plus": "cross-env NODE_ENV=development UNI_PLATFORM=app-plus vue-cli-service uni-build --watch",
+        "dev:h5": "cross-env NODE_ENV=development UNI_PLATFORM=h5 vue-cli-service uni-serve",
+        "dev:mp-alipay": "cross-env NODE_ENV=development UNI_PLATFORM=mp-alipay vue-cli-service uni-build --watch",
+        "dev:mp-baidu": "cross-env NODE_ENV=development UNI_PLATFORM=mp-baidu vue-cli-service uni-build --watch",
+        "dev:mp-toutiao": "cross-env NODE_ENV=development UNI_PLATFORM=mp-toutiao vue-cli-service uni-build --watch",
+        "dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
+        "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js"
+    },
+    "dependencies": {
+        "@dcloudio/uni-app-plus": "0.0.247",
+        "@dcloudio/uni-h5": "0.5.12",
+        "@dcloudio/uni-mp-alipay": "0.0.821",
+        "@dcloudio/uni-mp-baidu": "0.0.849",
+        "@dcloudio/uni-mp-toutiao": "0.0.345",
+        "@dcloudio/uni-mp-weixin": "0.0.966",
+        "flyio": "^0.6.2",
+        "regenerator-runtime": "^0.13.2",
+        "vue": "^2.6.10",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+        "@dcloudio/uni-cli-shared": "0.2.966",
+        "@dcloudio/uni-template-compiler": "0.9.179",
+        "@dcloudio/vue-cli-plugin-hbuilderx": "1.0.102",
+        "@dcloudio/vue-cli-plugin-uni": "0.9.484",
+        "@dcloudio/webpack-uni-mp-loader": "0.3.632",
+        "@dcloudio/webpack-uni-pages-loader": "0.2.847",
+        "@types/html5plus": "*",
+        "@types/uni-app": "*",
+        "@vue/cli-plugin-babel": "3.8.0",
+        "@vue/cli-service": "^3.8.4",
+        "babel-plugin-import": "^1.11.0",
+        "moment": "^2.24.0",
+        "npm-run-all": "^4.1.5",
+        "postcss-comment": "^2.0.0",
+        "vue-template-compiler": "^2.6.10",
+        "weex-vue-loader": "^0.7.0"
+    },
+    "browserslist": [
+        "defaults"
+    ]
+}
