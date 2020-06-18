@@ -55,9 +55,10 @@
                                             <view>
                                                 <view
                                                     class="cu-avatar xs round "
-                                                    style="background-image:url('https://app.wecanrun.cn/v5/upload/image/baiingHead/335e870972ec0bd927dcdbcac031ce36.jpg')"
+                                                    :style="{'background-image':'url('+val.image +')'}"
                                                 ></view>
-                                                <text class="text-cut">某组织 身份</text>
+                                                <text class="text-cut">
+                                                    {{val.iconTitle}}</text>
                                             </view>
                                         </view>
                                     </view>
