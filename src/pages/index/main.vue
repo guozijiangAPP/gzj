@@ -27,18 +27,16 @@
                         </view>
                         <view class="content margin-tb-sm">
                             <view v-if="item.headerAction == 'SearchAndAddFriend'" class="padding-lr-sm">
-                                <view class="text-lg">{{val.title}}</view>
-                                <view>
-                                    <swiper class="screen-swiper"  indicator-color="#8799a3" indicator-active-color="#0081ff">
-                                        <swiper-item v-for="(val,key) in item.infoModels" :key="key" class="swiper-item-30">
-                                            <view class="swiper-view">
-                                                <image src="{{val.image}}" mode="aspectFill" class="swiper-item-img cu-avatar xxl hp-radius"></image>
-                                                <text class="text-sm padding-right-xs text-cut text-colorCCC">{{val.title}}</text>
-                                                <text class="text-xs padding-right-xs text-cut text-color999">{{val.subTitle}}</text>
-                                            </view>
-                                        </swiper-item>
-                                    </swiper>
-                                </view>
+                                <!-- 横屏滚动 -->
+                                <swiper class="screen-swiper"  indicator-color="#8799a3" indicator-active-color="#0081ff">
+                                    <swiper-item v-for="(val,key) in item.infoModels" :key="key" class="swiper-item-30">
+                                        <view class="swiper-view">
+                                            <image :src="val.image" mode="aspectFill" class="swiper-item-img cu-avatar xxl hp-radius"></image>
+                                            <text class="text-sm padding-right-xs text-cut text-colorCCC">{{val.title}}</text>
+                                            <text class="text-xs padding-right-xs text-cut text-color999">{{val.subTitle}}</text>
+                                        </view>
+                                    </swiper-item>
+                                </swiper>
                             </view>
                             <view v-else>
                                 <view v-for="(val,key) in item.infoModels" :key="key">
