@@ -11,8 +11,10 @@
 			}
 		},
 		onLoad: function (option) { //option为object类型，会序列化上个页面传递的参数
-			this.userId = option.userId;
-			this.pageUrl = option.url + "?userId=" + option.userId;
+			option.para = option.para.replace(/:/g, "=")
+			option.para = option.para.replace(/,/g, "&")
+			this.pageUrl = option.url + "?" + option.para;
+			console.log(this.pageUrl)
 		},
 		methods: {
 			

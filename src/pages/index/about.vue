@@ -8,7 +8,7 @@
 				<view class="text-lg margin-top-sm">{{userInfo.nickName}}</view>
 				<view class="text-sm text-color999">会跑号:1234</view>
 				<view class=" flex text-center text-gray response top-nav">
-					<view class="flex flex-sub flex-direction solid-right">
+					<view class="flex flex-sub flex-direction solid-right" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/seeInto" data-para="userId:199915689,type:runPersonal">
 						<view class="text-xxl text-colorRed text-bold">297</view>
 						<view class="text-sm">跑力值</view>
 					</view>
@@ -16,8 +16,8 @@
 						<view class="text-xxl text-colorRed text-bold">405</view>
 						<view class="text-sm">累计跑量(公里)</view>
 					</view>
-					<view class="flex flex-sub flex-direction">
-						<view class="text-xxl text-colorRed text-bold">0.86</view>
+					<view class="flex flex-sub flex-direction" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/detailRunData" data-para="userId:199915689,id:306993">
+						<view class="text-xxl text-colorRed text-bold">10.00</view>
 						<view class="text-sm">最后一次(公里)</view>
 					</view>
 				</view>
@@ -36,12 +36,12 @@
 					</navigator>
 				</view>
 				<view class="content">
-					<navigator class="content padding" url="/pages/hpcircle/index?userId=10016" hover-class="navigator-hover">
+					<navigator class="content padding" url="/pages/hpcircle/index?userId=199915689" hover-class="navigator-hover">
 						<text>会跑圈</text>
 					</navigator>
 				</view>
 				<view class="content">
-					<navigator class="content padding" url="/pages/activity/index?userId=10016" hover-class="navigator-hover">
+					<navigator class="content padding" url="/pages/activity/index?userId=199915689" hover-class="navigator-hover">
 						<text>我的活动</text>
 					</navigator>
 				</view>
@@ -51,23 +51,33 @@
 					</navigator>
 				</view>
 				<view class="content">
-					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/seeInto">
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/seeInto" data-para="userId:199915689">
 						<text>跑力洞察</text>
 					</navigator>
 				</view>
 				<view class="content">
-					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/rankList">
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/questionnaireOffered" data-para="userId:199915689">
+						<text>身心测试</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/rankList" data-para="userId:199915689">
 						<text>好友排行</text>
 					</navigator>
 				</view>
 				<view class="content">
-					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/report">
-						<text>周报月报</text>
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/report" data-para="userId:199915689">
+						<text>周报月报年报</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" url="" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/wallet" data-para="userId:199915689">
+						<text>我的钱包</text>
 					</navigator>
 				</view>
 				<view class="content">
 					<navigator class="content padding" url="" hover-class="navigator-hover">
-						<text>我的钱包</text>
+						<text>我的荣誉</text>
 					</navigator>
 				</view>
 				<view class="content">
@@ -76,8 +86,33 @@
 					</navigator>
 				</view>
 				<view class="content">
-					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/questionnaireFinished">
-						<text>问卷调查</text>
+					<navigator class="content padding" url="" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/tools/1" data-para="userId:199915689">
+						<text>小工具</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" url="" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/managementRelationship" data-para="userId:199915689">
+						<text>我的团队</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" url="" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/tagList" data-para="userId:199915689,label:你应该知道的会跑使用系列指南">
+						<text>常见问题</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/userStock" data-para="userId:199915689">
+						<text>我的股份</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/proposal" data-para="userId:199915689">
+						<text>我的申请</text>
+					</navigator>
+				</view>
+				<view class="content">
+					<navigator class="content padding" hover-class="navigator-hover" @click="jumpPages" data-url="https://app.wecanrun.cn/v5/page/recruitingActivityList" data-para="userId:199915689">
+						<text>我的招募活动</text>
 					</navigator>
 				</view>
 			</view>
@@ -96,7 +131,8 @@
 				userInfo: {},
 				starCount: 0,
 				forksCount: 0,
-				visitTotal: 0
+				visitTotal: 0,
+				userId: 199915689
 			}
 		},
 		created() {
@@ -135,7 +171,7 @@
 				var _data = e.currentTarget.dataset;
 				// 跳转页面
 				uni.navigateTo({
-					url: '../../pages/h5page/index?url=' + _data.url + '&userId=' + "10002"
+					url: '../../pages/h5page/index?url=' + _data.url + "&para=" + _data.para,
 				});
 			},
 			userInfoGet() {

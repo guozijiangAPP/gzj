@@ -64,6 +64,8 @@
                                         v-else-if="val.action == 'ClickMore'"
                                         @click="clickFn"
                                         :data-action="val.action"
+                                        :data-iconAction = "val.iconAction"
+                                        :data-id="val.id"
                                         :data-index = "key"
                                     >
                                         <view v-if="item.isShow" class="bg-color28 text-color999 text-sm">{{val.title}}</view>
@@ -72,6 +74,8 @@
                                         v-else-if="val.action == 'ListEnd'"
                                         @click="clickFn"
                                         :data-action="val.action"
+                                        :data-iconAction = "val.iconAction"
+                                        :data-id="val.id"
                                     >
                                         <view class="bg-color28 text-color999 text-sm">{{val.title}}</view>
                                     </view>
@@ -81,6 +85,7 @@
                                             hover-class="navigator-hover"
                                             @click="clickFn"
                                             :data-action="val.action"
+                                            :data-iconAction = "val.iconAction"
                                             :data-id="val.id">
                                                 <view class="content padding-0 flex">
                                                     <view class="desc flex justify-between width100">
@@ -97,6 +102,7 @@
                                             hover-class="navigator-hover"
                                             @click="clickFn"
                                             :data-action="val.action"
+                                            :data-iconAction = "val.iconAction"
                                             :data-id="val.id"
                                             >
                                                 <view class="content padding-0 flex">
@@ -207,29 +213,20 @@
         components: {'cu-say': Xhsay,'cu-target': Target,'cu-state':State},
         filters: {},
         methods: {
-            jumpPages(e) {
-                // 跳转页面
-                uni.navigateTo({
-                    url:
-                        "../../pages/user/index?userId=" +
-                        e.currentTarget.dataset.userid +
-                        "&nickName=" +
-                        e.currentTarget.dataset.nickname
-                });
-            },
             clickFn(e) {
+                console.log(e.currentTarget.dataset)
                 if (e.currentTarget.dataset.action == "Status") {
                     this.modalState = !this.modalState;
                 } else if (e.currentTarget.dataset.action == "Target") {
                     this.modalTarget = !this.modalTarget;
                 } else if(e.currentTarget.dataset.action == "ViewUser"){
                     uni.navigateTo({
-                        url: '../../pages/user/index?userId=' + "10002",
+                        url: '../../pages/user/index?userId=' + "199915689",
                         animationType: "fade-in"
                     });
                 } else if(e.currentTarget.dataset.action == 'Task'){
                     uni.navigateTo({
-                        url: '../../pages/task/index?userId=' + "10002",
+                        url: '../../pages/task/index?userId=' + "199915689",
                         animationType: "fade-in"
                     }); 
                 }else if(e.currentTarget.dataset.action == 'ClickMore'){
@@ -238,7 +235,66 @@
                     var j = this.resultList[this.pageNum + 1].length-1;
                     this.$set(this.resultList[this.pageNum + 1][j],'isShow',true)
                     this.pageNum = this.pageNum+1;
+                }else if(e.currentTarget.dataset.action == "Knowledge"){    // 知识
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'http://search.wecanrun.cn/app/page/hpDetail';
+                    var _para = 'knowledgeVersionedId:' + id + ',mongoId:' + id
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "SleepMode"){    // 睡眠
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/sleepMode';
+                    var _para = 'userId:' + id
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "AnswerQuestion"){    // 心理测试题
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/questionnaire';
+                    var _para = 'questionnairId:' + id + ',userId:' + "199915689"
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "RunDetail"){    // 跑步记录详情
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/detailRunData';
+                    var _para = 'id:' + id + ',userId:' + "199915689" + ",friendId:" + "199915689"
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "Insights"){    // 洞察
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/seeInto';
+                    var _para ='userId:' + "199915689"
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "RunActivity"){    // 周跑月跑约定跑活动
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/ypddDetail';
+                    var _para ='userId:' + "199915689" + ",id:" + id
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "RaceOnlineOutside"){    // 线上赛事
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/raceOnline';
+                    var _para ='userId:' + "199915689" + ",id:" + id
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "SearchAndAddVolunteer"){    // 添加咨询师-重新测试
+                    var iconaction = e.currentTarget.dataset.iconaction;
+                    if(iconaction == "QuestionnaireList"){
+                        var _url = 'https://app.wecanrun.cn/v5/page/questionnaireOffered';
+                        var _para ='userId:' + "199915689"
+                        uni.navigateTo({
+                            url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                        });
+                    }
                 }
+                
             },
             getmodalState(modalState){
                 this.modalState= modalState;
@@ -274,7 +330,6 @@
                 this.resultList[num] = this.resultList[num] || [];
                 this.resultList[num].push(this.result.value[i])
             }
-            console.log(this.resultList);
             this.targetList = [
                 {
                     name: "跑得更远"
