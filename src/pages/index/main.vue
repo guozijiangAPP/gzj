@@ -224,7 +224,7 @@
                         url: '../../pages/user/index?userId=' + "199915689",
                         animationType: "fade-in"
                     });
-                } else if(e.currentTarget.dataset.action == 'Task'){
+                } else if(e.currentTarget.dataset.action == 'Task' || e.currentTarget.dataset.action == "Note"){
                     uni.navigateTo({
                         url: '../../pages/task/index?userId=' + "199915689",
                         animationType: "fade-in"
@@ -242,10 +242,17 @@
                     uni.navigateTo({
                         url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
                     });
-                }else if(e.currentTarget.dataset.action == "SleepMode"){    // 睡眠
+                }else if(e.currentTarget.dataset.action == "SleepMode"){    // 睡眠  
                     var id = e.currentTarget.dataset.id;
                     var _url = 'https://app.wecanrun.cn/v5/page/sleepMode';
                     var _para = 'userId:' + id
+                    uni.navigateTo({
+                        url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
+                    });
+                }else if(e.currentTarget.dataset.action == "HeightWeightSetting"){    // 身高体重
+                    var id = e.currentTarget.dataset.id;
+                    var _url = 'https://app.wecanrun.cn/v5/page/heightWeightSetting';
+                    var _para = 'userId:' + id + ",mentorId:" + id
                     uni.navigateTo({
                         url: '../../pages/h5page/index?url=' + _url + '&para=' + _para
                     });
