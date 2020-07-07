@@ -30,7 +30,15 @@
                                 <!-- 横屏滚动 -->
                                 <swiper class="screen-swiper"  indicator-color="#8799a3" indicator-active-color="#0081ff">
                                     <swiper-item v-for="(val,key) in item.infoModels" :key="key" class="swiper-item-30">
-                                        <view class="swiper-view">
+                                        <view class="swiper-view"
+                                            @click="clickFn"
+                                            :data-action="val.action"
+                                            :data-iconAction = "val.iconAction"
+                                            :data-id="val.id" 
+                                            :data-title="val.title" 
+                                            :data-subtitle="val.subTitle" 
+                                            :data-image="val.image" 
+                                        >
                                             <image :src="val.image" mode="aspectFill" class="swiper-item-img cu-avatar xxl hp-radius"></image>
                                             <text class="text-sm padding-right-xs text-cut text-colorCCC">{{val.title}}</text>
                                             <text class="text-xs padding-right-xs text-cut text-color999">{{val.subTitle}}</text>
@@ -220,8 +228,12 @@
                 } else if (e.currentTarget.dataset.action == "Target") {
                     this.modalTarget = !this.modalTarget;
                 } else if(e.currentTarget.dataset.action == "ViewUser"){
+                    var id = e.currentTarget.dataset.id;
+                    var title = e.currentTarget.dataset.title;
+                    var subtitle = e.currentTarget.dataset.subtitle;
+                    var image = e.currentTarget.dataset.image;
                     uni.navigateTo({
-                        url: '../../pages/user/index?userId=' + "199915689",
+                        url: '../../pages/user/index?userId=' + id + '&title=' + title + '&subtitle=' + subtitle + '&image=' + image,
                         animationType: "fade-in"
                     });
                 } else if(e.currentTarget.dataset.action == 'Task' || e.currentTarget.dataset.action == "Note"){

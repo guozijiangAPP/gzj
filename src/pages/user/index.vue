@@ -9,11 +9,11 @@
                 <view class="content padding-0 flex">
                     <view
                         class="cu-avatar xl margin-right-sm"
-                        style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"
+                        :style="{'background-image':'url('+userInfo.image +')'}"
                     ></view>
                     <view class="desc flex flex-direction justify-between">
                         <view class>
-                            <text class="text-lg">徐卫华</text>
+                            <text class="text-lg">{{userInfo.nickName}}</text>
                             <text class="margin-right-xs margin-left-xs cuIcon-myfill text-hpColor"></text>
                             <text
                                 class="margin-right-xs margin-left-xs padding-xs bg-colorRed text-xs round"
@@ -24,7 +24,7 @@
                         </view>
                         <view
                             class="text-sm text-color999 flex justify-between"
-                        >会跑号:{{userInfo.userId}}</view>
+                        >{{userInfo.subtitle}}</view>
                     </view>
                 </view>
             </view>
@@ -53,7 +53,9 @@ export default {
         return {
             userInfo: {
                 userId: "",
-                nickName: ""
+                nickName: "",
+                subtitle: "",
+                image: ""
             }
         };
     },
@@ -61,6 +63,9 @@ export default {
     onLoad: function(option) {
         //option为object类型，会序列化上个页面传递的参数
         this.userInfo.userId = option.userId;
+        this.userInfo.nickName = option.title || "冯瑞欣";
+        this.userInfo.subtitle = option.subtitle || "会跑号：1234";
+        this.userInfo.image = option.image || "https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
     },
     methods: {}
 };
